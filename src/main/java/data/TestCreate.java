@@ -10,13 +10,13 @@ public class TestCreate {
 
     public void testCreate() {
         HibernateController hibernateController =
-                new HibernateController("pgtest-db.4a4b.dk:6543/pg");
+                new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         User user = new User();
         System.out.println("UserID before commit: " + user.getId());
-        user.setUsername("Melman");
+        user.setUsername("Marius");
         session.persist(user);
         transaction.commit();
         System.out.println("UserID after commit: " + user.getId());
