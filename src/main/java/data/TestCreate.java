@@ -16,7 +16,7 @@ public class TestCreate {
         Transaction transaction = session.beginTransaction();
         User user = new User();
         System.out.println("UserID before commit: " + user.getId());
-        user.setUsername("Marius");
+        user.setUsername("henrik");
         session.persist(user);
         transaction.commit();
         System.out.println("UserID after commit: " + user.getId());
