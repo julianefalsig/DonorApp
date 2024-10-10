@@ -49,5 +49,4 @@ public class Donor {
         this.qualificationSteps = qualificationSteps;
     }
 
-
 }

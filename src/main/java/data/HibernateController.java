@@ -1,5 +1,6 @@
 package data;
 
+import data.Entities.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
