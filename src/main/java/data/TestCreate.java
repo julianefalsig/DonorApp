@@ -24,7 +24,7 @@ public class TestCreate {
         Donor donor = new Donor();
         System.out.println("UserID before commit: " + user.getId());
         user.setUsername("henrik");
-        donor.setFirstname("Harry");
+        donor.setFirstName("Harry");
         //gemmer brugeren i databasaen
         session.persist(user);
         session.persist(donor);
