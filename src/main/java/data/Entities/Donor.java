@@ -12,16 +12,15 @@ public class Donor {
     private int donorId;
     @Column(name = "FirstName")
     private String firstName;
-    @OneToMany (mappedBy = "donor")
+    @OneToMany (mappedBy = "donor", cascade = CascadeType.ALL, orphanRemoval = true) //delete on cascade --> id a donor is deleted, its related qualificationsteps will be deleted
     private List<QualificationStep> qualificationSteps;
 
     //No-argument constructor required for Hibernate to work
     public Donor() {}
 
-    //Constructor
-    public Donor( String firstName, List<QualificationStep> qualificationSteps) {
+    //Constructor - only first name reqired, give flexibility to associate qual-steps at any time
+    public Donor( String firstName) {
         this.firstName = firstName;
-        this.qualificationSteps = qualificationSteps;
     }
 
     //getters and setters
