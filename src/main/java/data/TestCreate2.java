@@ -27,7 +27,7 @@ public class TestCreate2 {
         try {
             // Create and save a donor
             Donor donor = new Donor();
-            donor.setFirstName("Jan");
+            donor.setFirstName("Hans");
             session.persist(donor);
 
             // Create a qualification step and metadata
