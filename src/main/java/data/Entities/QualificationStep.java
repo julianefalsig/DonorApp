@@ -24,42 +24,65 @@ public class QualificationStep {
     @JoinColumn (name = "DonorID")
     private Donor donor;
 
-   /* @OneToMany (mappedBy = "qualificationStep")
-    private List<MetaData> metaData;
-                                         */
-    //Get&Set
-    public int getQualificationStepID(){
-        return qualificationStepID;
-    }
+    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MetaData> metaDataList;
 
-    public void setQualificationStepID(int qualificationStepID){
-        this.qualificationStepID = qualificationStepID;
-    }
-
-    public int getStepNumber(){
-        return stepNumber;
-    }
-
-    public void setStepNumber(int stepNumber){
-        this.stepNumber = stepNumber;
-    }
-
-    public String getTitle(){
-        return title;
-    }
-
-    public void setTitle(String title){
-        this.title = title;
-    }
-    //no-argument constructor
+    //Empty constructor
     public QualificationStep(){}
 
-    //constructor
-    public QualificationStep(int qualificationStepID, int stepNumber, String title, Donor donor){
-        this.qualificationStepID =qualificationStepID;
+    //Full constructor minus stepID
+    public QualificationStep(int stepNumber, String title, Donor donor){
         this.stepNumber = stepNumber;
         this.title = title;
         this.donor = donor;
     }
+    //Get&Set
+    public int getQualificationStepID(){
 
+        return qualificationStepID;
+    }
+
+    public void setQualificationStepID(int qualificationStepID){
+
+        this.qualificationStepID = qualificationStepID;
+    }
+
+    public int getStepNumber(){
+
+        return stepNumber;
+    }
+
+    public void setStepNumber(int stepNumber){
+
+        this.stepNumber = stepNumber;
+    }
+
+    public String getTitle(){
+
+        return title;
+    }
+
+    public void setTitle(String title){
+
+        this.title = title;
+    }
+
+    public Donor getDonor(){return donor;}
+
+    public void setDonor(Donor donor){
+        this.donor = donor;
+    }
+
+    public List<MetaData> getMetaDataList() {
+        return metaDataList;
+    }
+
+    public void setMetaDataList(List<MetaData> metaDatalist){
+         this.metaDataList = metaDataList;
+    }
+
+    public void addMetaData(MetaData metaData){
+         metaData.setQualificationStep(this);
+         this.metaDataList.add(metaData);
+    }
 }
