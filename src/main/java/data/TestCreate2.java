@@ -13,6 +13,7 @@ import java.util.List;
 
 @Test
 public class TestCreate2 {
+    // ændring vjrkwngvkjrstæl
     public void testCreate2() {
         // Create a connection to the Hibernate controller
         HibernateController hibernateController =
