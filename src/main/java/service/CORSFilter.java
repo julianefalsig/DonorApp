@@ -22,6 +22,7 @@ public class CORSFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestContext) throws IOException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS, PATCH");
+
         String requestAllowHeader = request.getHeader("Access-Control-Request-Headers");
         response.setHeader("Access-Control-Allow-Headers", requestAllowHeader);
         response.setHeader("Access-Control-Allow-Credentials", "true");
