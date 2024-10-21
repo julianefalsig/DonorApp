@@ -1,6 +1,6 @@
-package service;
+package business.services;
 
-import data.Entities.User;
+import data.entities.User;
 import data.HibernateController;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -1,14 +1,39 @@
 package launch;
-
+import business.DTOs.DonorQualificationStepDTO;
+import business.services.QualificationStepService;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
-
+import business.services.DonorService;
 import java.io.File;
+import java.util.List;
 
 public class Main  {
     public static void main(String[] args) {
+
+        //Testing that the donorService is working
+        /*
+        DonorService donorService = new DonorService();
+        List<String> donorFirstNames = donorService.getAllDonors();
+        if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
+            donorFirstNames.forEach(System.out::println);  // This will print to the terminal
+        } else {
+            System.out.println("No donors found or donor service returned null.");
+        }
+        */
+        QualificationStepService qualificationStepService = new QualificationStepService();
+
+        //Testing qualstepservice
+        List<DonorQualificationStepDTO> ldqsDTO;
+        ldqsDTO = qualificationStepService.getQualificationStepOnDonor(352);
+        for (DonorQualificationStepDTO dto : ldqsDTO) {
+            System.out.println(dto.toString());
+        }
+
+
+
+
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
         String port = System.getenv("DonorApp2");
@@ -23,7 +48,7 @@ public class Main  {
 
         // Tilføj Jersey ServletContainer
         Wrapper jerseyServlet = tomcat.addServlet("", "jersey-container-servlet", "org.glassfish.jersey.servlet.ServletContainer");
-        jerseyServlet.addInitParameter("jersey.config.server.provider.packages", "service");  // Pakke hvor dine ressourcer findes
+        jerseyServlet.addInitParameter("jersey.config.server.provider.packages", "business");  // Pakke hvor dine ressourcer findes
         jerseyServlet.setLoadOnStartup(1);
         jerseyServlet.addMapping("/api/*");  // Map REST endpoints til /api/
 

@@ -1,7 +1,7 @@
 package data;
 
-import data.Entities.Donor;
-import data.Entities.User;
+import data.entities.Donor;
+import data.entities.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

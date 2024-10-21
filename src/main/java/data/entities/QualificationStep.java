@@ -1,7 +1,5 @@
-package data.Entities;
+package data.entities;
 
-import data.Entities.Donor;
-import data.Entities.MetaData;
 import jakarta.persistence.*;
 
 import java.util.List;
