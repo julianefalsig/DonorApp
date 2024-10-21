@@ -1,8 +1,8 @@
 package data;
 
-import data.Entities.Donor;
-import data.Entities.MetaData;
-import data.Entities.QualificationStep;
+import data.entities.Donor;
+import data.entities.MetaData;
+import data.entities.QualificationStep;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

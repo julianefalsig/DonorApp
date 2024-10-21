@@ -1,13 +1,12 @@
 package data;
-
-import data.Entities.Donor;
-import data.Entities.MetaData;
-import data.Entities.QualificationStep;
-import data.Entities.User;
+import data.entities.Donor;
+import data.entities.MetaData;
+import data.entities.QualificationStep;
+import data.entities.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateController {//Should be a singleton…
+public class HibernateController {
     private final SessionFactory sessionFactory;
 
     public HibernateController(String dbUrl){
