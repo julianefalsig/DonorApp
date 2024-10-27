@@ -18,6 +18,9 @@ public class QualificationStep {
     @Column(name = "Title")
     private String title;
 
+    @Column(name = "IsCompleted")
+    private boolean isCompleted;
+
     @ManyToOne
     @JoinColumn (name = "DonorID")
     private Donor donor;
@@ -29,9 +32,10 @@ public class QualificationStep {
     public QualificationStep(){}
 
     //Full constructor minus stepID
-    public QualificationStep(int stepNumber, String title, Donor donor){
+    public QualificationStep(int stepNumber, String title, boolean isCompleted, Donor donor){
         this.stepNumber = stepNumber;
         this.title = title;
+        this.isCompleted =isCompleted;
         this.donor = donor;
     }
     //Get&Set
@@ -63,6 +67,14 @@ public class QualificationStep {
     public void setTitle(String title){
 
         this.title = title;
+    }
+
+    public boolean getIsCompleted(){
+        return isCompleted;
+    }
+
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public Donor getDonor(){return donor;}
