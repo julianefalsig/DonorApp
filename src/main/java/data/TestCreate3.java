@@ -1,4 +1,4 @@
-/*
+
 package data;
 
 import data.entities.MetaDataTemplate;
@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.testng.annotations.Test;
 
 @Test
-public class TestCreate3 {
+public class TestCreate3 {/*
         public void testCreate3() {
             //opretter forbindelse til hybernate controlleren
             HibernateController hibernateController =
@@ -45,6 +45,6 @@ public class TestCreate3 {
         } finally {
             session.close();
         }
-    }
+    }*/
 }
-*/
+
