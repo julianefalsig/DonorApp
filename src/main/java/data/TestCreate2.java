@@ -13,7 +13,6 @@ import java.util.List;
 
 @Test
 public class TestCreate2 {
-    // ændring vjrkwngvkjrstæl
     public void testCreate2() {
         // Create a connection to the Hibernate controller
         HibernateController hibernateController =
@@ -25,42 +24,31 @@ public class TestCreate2 {
         Transaction transaction = session.beginTransaction();
 
         try {
-            // Create and save a donor
             Donor donor = new Donor();
-            donor.setFirstName("Hans");
+            // change donor name here
+            donor.setFirstName("Oscar");
             session.persist(donor);
 
-            // Create a qualification step and metadata
-            QualificationStep qualificationStep = new QualificationStep(2, "Initial Interview", donor);
-            MetaData metaData1 = new MetaData(
-                    "Before your initial interview, you have to fill out the initial survey. You will find the link in your email.",
-                    false,
-                    qualificationStep
-            );
-            MetaData metaData2 = new MetaData(
-                    "Please remember to prepare your family history, we are interested to know about your family's health/illnesses etc.",
-                    false,
-                    qualificationStep
-            );
+            List<String> stepTitleList = new ArrayList<> ();
+            stepTitleList.add("Sample Analysis");
+            stepTitleList.add("Interview & information");
+            stepTitleList.add("Medical examination");
+            stepTitleList.add("Blood & urine test");
+            stepTitleList.add("Donor profile");
 
-            // Add metadata to the qualification step
-            List<MetaData> metaDataList = new ArrayList<>();
-            metaDataList.add(metaData1);
-            metaDataList.add(metaData2);
-
-            qualificationStep.setMetaDataList(metaDataList);
-
-            // Save the qualification step
-            session.persist(qualificationStep);
-            session.persist(metaData1);
-            session.persist(metaData2);
-
+            for(int i=0; i<stepTitleList.size(); i++){
+                //Creating all qualification steps
+                boolean isCompleted ;
+                if(i==0){isCompleted = true;} else isCompleted = false;
+                QualificationStep qualificationStep = new QualificationStep(i+1, stepTitleList.get(i),isCompleted, donor);
+                session.persist(qualificationStep);
+            }
             // Commit the transaction after all operations
             transaction.commit();
 
             System.out.println("Transaction succeeded. Donor ID: " + donor.getDonorId());
-            System.out.println("QualificationStep ID: " + qualificationStep.getQualificationStepID());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }

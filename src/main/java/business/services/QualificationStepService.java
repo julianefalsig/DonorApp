@@ -27,6 +27,7 @@ public class QualificationStepService {
             Query<DonorQualificationStepDTO> query = session.createQuery(hql, DonorQualificationStepDTO.class);
             query.setParameter("donorId", donorId);
             qualificationStepOnDonor = query.getResultList();
+
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
