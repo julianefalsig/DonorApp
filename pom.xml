@@ -89,6 +89,13 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.1.4.Final</version>
         </dependency>
+        <!-- Getters and setters auto create -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- Specify the version here -->
+            <optional>true</optional>
+        </dependency>
         <!-- connection pool NOTE: Error in maven dependency causes connection pool to fail
                <!- connection pool -->
         <!--        <dependency>-->

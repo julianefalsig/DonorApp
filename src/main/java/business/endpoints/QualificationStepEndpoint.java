@@ -16,8 +16,8 @@ public class QualificationStepEndpoint {
 
     QualificationStepService qualificationStepService = new QualificationStepService();
     @GET
-    public List<DonorQualificationStepDTO> geBLabla() {
-        return qualificationStepService.getQualificationStepOnDonor(352);  // Delegate to service layer
+    public List<DonorQualificationStepDTO> getQualificationStep() {
+        return qualificationStepService.getQualificationStepOnDonor(852);  // Delegate to service layer
     }
 
 

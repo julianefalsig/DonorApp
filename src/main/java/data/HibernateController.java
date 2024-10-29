@@ -1,8 +1,5 @@
 package data;
-import data.entities.Donor;
-import data.entities.MetaData;
-import data.entities.QualificationStep;
-import data.entities.User;
+import data.entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -15,6 +12,7 @@ public class HibernateController {
         configuration.addAnnotatedClass(Donor.class);
         configuration.addAnnotatedClass(QualificationStep.class);
         configuration.addAnnotatedClass(MetaData.class);
+        configuration.addAnnotatedClass(MetaDataTemplate.class);
         configuration.setProperty("hibernate.connection.username", System.getenv("donor22user"));
         configuration.setProperty("hibernate.connection.password", System.getenv("donor22pass"));
         configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://" + dbUrl);

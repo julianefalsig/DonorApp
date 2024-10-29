@@ -26,7 +26,7 @@ public class Main  {
 
         //Testing qualstepservice
         List<DonorQualificationStepDTO> ldqsDTO;
-        ldqsDTO = qualificationStepService.getQualificationStepOnDonor(352);
+        ldqsDTO = qualificationStepService.getQualificationStepOnDonor(852);
         for (DonorQualificationStepDTO dto : ldqsDTO) {
             System.out.println(dto.toString());
         }
