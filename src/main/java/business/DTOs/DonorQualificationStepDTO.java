@@ -53,6 +53,7 @@ public class DonorQualificationStepDTO {
                 "firstName='" + firstName + '\'' +
                 ", currentStep=" + currentStep +
                 ", stepTitle='" + stepTitle + '\'' +
+                ", isCompleted='" + completed + '\'' +
                 '}';
     }
 }
