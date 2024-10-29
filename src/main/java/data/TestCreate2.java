@@ -26,7 +26,7 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             // change donor name here
-            donor.setFirstName("Oscar");
+            donor.setFirstName("Benny");
             session.persist(donor);
 
             List<String> stepTitleList = new ArrayList<> ();
@@ -43,9 +43,7 @@ public class TestCreate2 {
                 QualificationStep qualificationStep = new QualificationStep(i+1, stepTitleList.get(i),isCompleted, donor);
                 session.persist(qualificationStep);
             }
-            // Commit the transaction after all operations
             transaction.commit();
-
             System.out.println("Transaction succeeded. Donor ID: " + donor.getDonorId());
         }
         catch (Exception e) {

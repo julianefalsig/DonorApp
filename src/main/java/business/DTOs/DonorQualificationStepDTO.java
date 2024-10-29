@@ -6,10 +6,13 @@ public class DonorQualificationStepDTO {
     private int currentStep;
     private String stepTitle;
 
-    public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle){
+    private boolean completed;
+
+    public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle, boolean completed){
         this.firstName = firstName;
         this.currentStep = currentStep;
         this.stepTitle = stepTitle;
+        this.completed = completed;
     }
     public DonorQualificationStepDTO(){
 
@@ -39,6 +42,10 @@ public class DonorQualificationStepDTO {
     public void setStepTitle(String stepTitle) {
         this.stepTitle = stepTitle;
     }
+
+    public boolean getCompleted(){ return completed;}
+
+    public void setCompleted(boolean completed){ this.completed = completed;}
 
     @Override
     public String toString() {

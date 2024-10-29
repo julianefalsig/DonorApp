@@ -21,7 +21,7 @@ public class QualificationStepService {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            String hql = "SELECT new business.DTOs.DonorQualificationStepDTO(d.firstName, q.stepNumber, q.title) " +
+            String hql = "SELECT new business.DTOs.DonorQualificationStepDTO(d.firstName, q.stepNumber, q.title, q.isCompleted) " +
                     "FROM Donor d JOIN QualificationStep q ON d.donorId = q.donor " +
                     "WHERE d.donorId = :donorId";
             Query<DonorQualificationStepDTO> query = session.createQuery(hql, DonorQualificationStepDTO.class);

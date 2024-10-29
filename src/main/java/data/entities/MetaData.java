@@ -10,8 +10,6 @@ public class MetaData {
     @GeneratedValue
     @Column(name= "SubStepID")
     private int subStepID;
-    @Column(name = "InfoText")
-    private String infoText;
 
     @Column(name = "Completed")
     private boolean completed;
@@ -20,13 +18,17 @@ public class MetaData {
     @JoinColumn(name = "QualificationStepID")
     private QualificationStep qualificationStep;
 
+    @ManyToOne
+    @JoinColumn(name= "TemplateID")
+    private MetaDataTemplate metaDataTemplate;
+
     //Empty Constructor
     public MetaData(){}
     //Full Constructor, minus substepID
-    public MetaData(String infoText, boolean completed, QualificationStep qualificationStep){
-        this.infoText = infoText;
+    public MetaData( boolean completed, QualificationStep qualificationStep, MetaDataTemplate metaDataTemplate){
         this.completed = completed;
         this.qualificationStep = qualificationStep;
+        this.metaDataTemplate = metaDataTemplate;
     }
 
     public int getSubStepID(){
@@ -34,14 +36,6 @@ public class MetaData {
     }
     public void setSubStepID(int subStepID){
         this.subStepID =   subStepID;
-    }
-
-    public String getInfoText(){
-        return infoText;
-    }
-
-    public void setInfoText(String infoText){
-        this.infoText = infoText;
     }
 
     public boolean getCompleted(){ return completed;}
@@ -56,5 +50,14 @@ public class MetaData {
 
     public void setQualificationStep(QualificationStep qualificationStep) {
         this.qualificationStep = qualificationStep;
+    }
+
+    public MetaDataTemplate getMetaDataTemplate() {
+        return metaDataTemplate;
+    }
+
+    public void setMetaDataTemplate(MetaDataTemplate metaDataTemplate){
+        this.metaDataTemplate = metaDataTemplate;
+
     }
 }
