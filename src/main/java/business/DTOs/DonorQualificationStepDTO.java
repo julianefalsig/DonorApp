@@ -5,7 +5,6 @@ public class DonorQualificationStepDTO {
     private String firstName;
     private int currentStep;
     private String stepTitle;
-
     private boolean completed;
 
     public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle, boolean completed){
