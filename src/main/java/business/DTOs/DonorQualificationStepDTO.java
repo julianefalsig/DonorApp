@@ -5,13 +5,14 @@ public class DonorQualificationStepDTO {
     private String firstName;
     private int currentStep;
     private String stepTitle;
-    private boolean completed;
 
-    public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle, boolean completed){
+    private boolean Completed;
+
+    public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle, boolean Completed){
         this.firstName = firstName;
         this.currentStep = currentStep;
         this.stepTitle = stepTitle;
-        this.completed = completed;
+        this.Completed = Completed;
     }
     public DonorQualificationStepDTO(){
 
@@ -42,9 +43,9 @@ public class DonorQualificationStepDTO {
         this.stepTitle = stepTitle;
     }
 
-    public boolean getCompleted(){ return completed;}
+    public boolean getIsCompleted(){ return Completed;}
 
-    public void setCompleted(boolean completed){ this.completed = completed;}
+    public void setIsCompleted(boolean isCompleted){ this.Completed = Completed;}
 
     @Override
     public String toString() {
@@ -52,7 +53,7 @@ public class DonorQualificationStepDTO {
                 "firstName='" + firstName + '\'' +
                 ", currentStep=" + currentStep +
                 ", stepTitle='" + stepTitle + '\'' +
-                ", isCompleted='" + completed + '\'' +
+                ", Completed='" + Completed + '\'' +
                 '}';
     }
 }

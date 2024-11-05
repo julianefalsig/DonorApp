@@ -1,4 +1,4 @@
-package data;
+package data.tests;
 
 import data.entities.MetaData;
 import data.entities.MetaDataTemplate;
