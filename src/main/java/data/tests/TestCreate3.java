@@ -1,5 +1,5 @@
 
-package data;
+package data.tests;
 
 import data.entities.MetaDataTemplate;
 import org.hibernate.Session;

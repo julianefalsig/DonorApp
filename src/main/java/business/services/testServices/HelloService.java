@@ -1,4 +1,4 @@
-package business.services;
+package business.services.testServices;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

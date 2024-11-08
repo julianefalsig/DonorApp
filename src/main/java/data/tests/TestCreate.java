@@ -1,5 +1,6 @@
-package data;
+package data.tests;
 
+import data.HibernateController;
 import data.entities.Donor;
 import data.entities.User;
 import org.hibernate.Session;

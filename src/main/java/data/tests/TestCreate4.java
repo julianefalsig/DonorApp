@@ -1,31 +1,54 @@
-package data;
+package data.tests;
 
+import data.HibernateController;
 import data.entities.MetaData;
-import data.entities.MetaDataTemplate;
-import data.entities.QualificationStep;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 @Test
 public class TestCreate4 {
-    /* INACTIVE CLASS for creating links between QualificationStep and MetaDataTemplate
     public void TestCreate4() {
 
-
-   //opretter forbindelse til hybernate controlleren
+        //INACTIVE CLASS for updating MetaData
+   /*
         HibernateController hibernateController =
                 new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
-        //starter en transaktion
+
+        // Start a transaction
         Transaction transaction = session.beginTransaction();
-        System.out.println("connection created");
+        System.out.println("Connection to database established.");
+
+        try {
+            String hql = "UPDATE MetaData m SET m.isCompleted = false WHERE m.isCompleted IS NULL";
+            Query query = session.createQuery(hql);
+
+            // Commit the transaction
+            transaction.commit();
+            System.out.println("MetaData updated successfully.");
+
+        } catch (Exception e) {
+            // If there is an exception, roll back the transaction
+            if (transaction != null) {
+                transaction.rollback();
+                System.err.println("Transaction rolled back due to error.");
+            }
+            e.printStackTrace();
+
+        } finally {
+            // Close the session to release resources
+            session.close();
+            System.out.println("Session closed.");
+        }
+    */
 
 
+/*
+// creating links between QualificationStep and MetaDataTemplate
         try {
             // Retrieve MetaDataTemplate entries with IDs 152 and 153
             MetaDataTemplate template1 = session.find(MetaDataTemplate.class, 152);
@@ -70,6 +93,6 @@ public class TestCreate4 {
             e.printStackTrace();
         } finally {
             session.close();
-        }
-    }*/
+        }*/
+    }
 }

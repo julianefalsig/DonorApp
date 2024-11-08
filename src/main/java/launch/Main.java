@@ -1,6 +1,8 @@
 package launch;
 import business.DTOs.DonorQualificationStepDTO;
+import business.DTOs.DonorQualificationSubStepDTO;
 import business.services.QualificationStepService;
+import business.services.SubStepService;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
@@ -31,7 +33,13 @@ public class Main  {
             System.out.println(dto.toString());
         }
 
-
+        //Testing result of query
+        SubStepService subStepService = new SubStepService();
+        List<DonorQualificationSubStepDTO> ldqssDTO;
+        ldqssDTO = subStepService.getSubStepsOnId(303);
+        for (DonorQualificationSubStepDTO d :ldqssDTO){
+            System.out.println(d.toString());
+        }
 
 
         Tomcat tomcat = new Tomcat();
