@@ -11,8 +11,8 @@ public class MetaData {
     @Column(name= "SubStepID")
     private int subStepID;
 
-    @Column(name = "Completed")
-    private boolean completed;
+    @Column(name = "isCompleted")
+    private boolean isCompleted;
 
     @ManyToOne
     @JoinColumn(name = "QualificationStepID")
@@ -25,8 +25,8 @@ public class MetaData {
     //Empty Constructor
     public MetaData(){}
     //Full Constructor, minus substepID
-    public MetaData( boolean completed, QualificationStep qualificationStep, MetaDataTemplate metaDataTemplate){
-        this.completed = completed;
+    public MetaData( boolean isCompleted, QualificationStep qualificationStep, MetaDataTemplate metaDataTemplate){
+        this.isCompleted = isCompleted;
         this.qualificationStep = qualificationStep;
         this.metaDataTemplate = metaDataTemplate;
     }
@@ -38,10 +38,10 @@ public class MetaData {
         this.subStepID =   subStepID;
     }
 
-    public boolean getCompleted(){ return completed;}
+    public boolean getIsCompleted(){ return isCompleted;}
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public QualificationStep getQualificationStep() {
