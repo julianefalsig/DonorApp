@@ -33,13 +33,13 @@ public class Main  {
             System.out.println(dto.toString());
         }
 
-        //Testing result of query
+/*        //Testing result of query
         SubStepService subStepService = new SubStepService();
         List<DonorQualificationSubStepDTO> ldqssDTO;
         ldqssDTO = subStepService.getSubStepsOnId(303);
         for (DonorQualificationSubStepDTO d :ldqssDTO){
             System.out.println(d.toString());
-        }
+        }*/
 
 
         Tomcat tomcat = new Tomcat();

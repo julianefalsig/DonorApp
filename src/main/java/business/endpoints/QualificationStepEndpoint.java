@@ -19,6 +19,4 @@ public class QualificationStepEndpoint {
     public List<DonorQualificationStepDTO> getQualificationStep() {
         return qualificationStepService.getQualificationStepOnDonor(852);  // Delegate to service layer
     }
-
-
 }

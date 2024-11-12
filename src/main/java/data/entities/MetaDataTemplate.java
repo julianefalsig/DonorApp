@@ -27,6 +27,11 @@ public class MetaDataTemplate {
         this.infoText = infoText;
     }
 
+    public MetaDataTemplate(int ID, String infoText){
+        this.templateID =ID;
+        this.infoText = infoText;
+    }
+
     // Getter and Setter for templateID
     public int getTemplateID() {
         return templateID;
