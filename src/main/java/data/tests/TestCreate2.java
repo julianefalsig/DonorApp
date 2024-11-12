@@ -3,6 +3,7 @@ package data.tests;
 import data.HibernateController;
 import data.entities.Donor;
 import data.entities.MetaData;
+import data.entities.MetaDataTemplate;
 import data.entities.QualificationStep;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,8 +28,8 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             // change donor name here
-            donor.setFirstName("Benny");
-            session.persist(donor);
+            donor.setFirstName("Anton");
+
 
             List<String> stepTitleList = new ArrayList<> ();
             stepTitleList.add("Sample Analysis");
@@ -42,8 +43,10 @@ public class TestCreate2 {
                 boolean isCompleted ;
                 if(i==0){isCompleted = true;} else isCompleted = false;
                 QualificationStep qualificationStep = new QualificationStep(i+1, stepTitleList.get(i),isCompleted, donor);
-                session.persist(qualificationStep);
+                qualificationStep.addMetaData(new MetaData(true, new MetaDataTemplate(152, null)));
+                donor.addQualificationStep(qualificationStep);
             }
+            session.persist(donor);
             transaction.commit();
             System.out.println("Transaction succeeded. Donor ID: " + donor.getDonorId());
         }

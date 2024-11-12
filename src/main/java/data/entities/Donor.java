@@ -1,5 +1,7 @@
 package data.entities;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +15,7 @@ public class Donor {
     @Column(name = "FirstName")
     private String firstName;
     @OneToMany (mappedBy = "donor", cascade = CascadeType.ALL, orphanRemoval = true) //delete on cascade --> id a donor is deleted, its related qualificationsteps will be deleted
-    private List<QualificationStep> qualificationSteps;
+    private List<QualificationStep> qualificationSteps = new ArrayList<>();
 
     //No-argument constructor required for Hibernate to work
     public Donor() {}
@@ -46,6 +48,11 @@ public class Donor {
 
     public void setQualificationSteps(List<QualificationStep> qualificationSteps) {
         this.qualificationSteps = qualificationSteps;
+    }
+
+    public void addQualificationStep(QualificationStep q){
+        this.qualificationSteps.add(q);
+
     }
 
 }

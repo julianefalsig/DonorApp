@@ -2,18 +2,22 @@ package data.tests;
 
 import data.HibernateController;
 import data.entities.MetaData;
+import data.entities.MetaDataTemplate;
+import data.entities.QualificationStep;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 @Test
-public class TestCreate4 {
+public class TestCreate4 {/*
     public void TestCreate4() {
 
         //INACTIVE CLASS for updating MetaData
-   /*
+
         HibernateController hibernateController =
                 new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -44,10 +48,10 @@ public class TestCreate4 {
             session.close();
             System.out.println("Session closed.");
         }
-    */
 
 
-/*
+
+
 // creating links between QualificationStep and MetaDataTemplate
         try {
             // Retrieve MetaDataTemplate entries with IDs 152 and 153
@@ -63,7 +67,7 @@ public class TestCreate4 {
 
             // Retrieve all QualificationStep entries with stepNumber = 2
             List<QualificationStep> stepsWithStepNumber2 = session.createQuery(
-                    "FROM QualificationStep WHERE stepNumber = 2", QualificationStep.class
+                    "FROM qualificationstep WHERE stepNumber = 2", QualificationStep.class
             ).getResultList();
 
 
@@ -93,6 +97,53 @@ public class TestCreate4 {
             e.printStackTrace();
         } finally {
             session.close();
-        }*/
+        }
+    }*/
+}
+
+/* ############################
+        try {
+            // Retrieve MetaDataTemplate entries by IDs
+            MetaDataTemplate template1 = session.find(MetaDataTemplate.class, 252);
+
+            if (template1 == null) {
+                System.out.println("Error: One or both MetaDataTemplate entries not found.");
+                return;
+            }
+
+            // Retrieve all QualificationStep entries by stepNumber
+            List<QualificationStep> stepsWithStepNumber3 = session.createQuery(
+                    "FROM QualificationStep WHERE stepNumber = 3", QualificationStep.class
+            ).getResultList();
+
+
+            // Create MetaData entries for each QualificationStep with both templates
+            for (QualificationStep step : stepsWithStepNumber3) {
+                MetaData metaData1 = new MetaData(false, step, template1);
+
+
+                // Link MetaData entries to the QualificationStep
+                step.addMetaData(metaData1);
+
+
+                // Persist the MetaData entries (this will also update QualificationStep due to cascade)
+                session.persist(metaData1);
+
+            }
+
+            // Commit transaction
+            transaction.commit();
+            System.out.println("MetaData entries linked successfully.");
+
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 }
+ */

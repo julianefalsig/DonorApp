@@ -2,6 +2,7 @@ package data.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class QualificationStep {
     private Donor donor;
 
     @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MetaData> metaDataList;
+    private List<MetaData> metaDataList = new ArrayList<>();
 
     //Empty constructor
     public QualificationStep(){}
@@ -94,5 +95,10 @@ public class QualificationStep {
     public void addMetaData(MetaData metaData){
          metaData.setQualificationStep(this);
          this.metaDataList.add(metaData);
+    }
+
+    @Override
+    public String toString() {
+        return "Step number: " + this.stepNumber + " Step title: " + this.title+ "Is completed: " + this.isCompleted;
     }
 }

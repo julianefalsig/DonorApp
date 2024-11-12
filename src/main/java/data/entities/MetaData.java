@@ -25,9 +25,8 @@ public class MetaData {
     //Empty Constructor
     public MetaData(){}
     //Full Constructor, minus substepID
-    public MetaData( boolean isCompleted, QualificationStep qualificationStep, MetaDataTemplate metaDataTemplate){
+    public MetaData( boolean isCompleted, MetaDataTemplate metaDataTemplate){
         this.isCompleted = isCompleted;
-        this.qualificationStep = qualificationStep;
         this.metaDataTemplate = metaDataTemplate;
     }
 
