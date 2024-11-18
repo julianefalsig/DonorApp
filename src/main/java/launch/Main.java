@@ -3,6 +3,7 @@ import business.DTOs.DonorQualificationStepDTO;
 import business.DTOs.DonorQualificationSubStepDTO;
 import business.services.QualificationStepService;
 import business.services.SubStepService;
+import data.entities.QualificationStep;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
@@ -27,11 +28,15 @@ public class Main  {
         QualificationStepService qualificationStepService = new QualificationStepService();
 
         //Testing qualstepservice
-        List<DonorQualificationStepDTO> ldqsDTO;
-        ldqsDTO = qualificationStepService.getQualificationStepOnDonor(852);
-        for (DonorQualificationStepDTO dto : ldqsDTO) {
-            System.out.println(dto.toString());
-        }
+    /*
+        List<QualificationStep> qs;
+        qs = qualificationStepService.getQualificationStepOnDonor(952);
+*/
+
+        //Testing qualstep service with the DTO
+        List <DonorQualificationStepDTO> dqsDTO;
+        dqsDTO = qualificationStepService.getQualificationStepOnDonor(952);
+        System.out.println(dqsDTO.toString());
 
 /*        //Testing result of query
         SubStepService subStepService = new SubStepService();
