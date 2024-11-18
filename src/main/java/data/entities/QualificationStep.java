@@ -1,5 +1,6 @@
 package data.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class QualificationStep {
 
     @ManyToOne
     @JoinColumn (name = "DonorID")
+    @JsonIgnore // Prevents circular reference during serialization
     private Donor donor;
 
     @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true)

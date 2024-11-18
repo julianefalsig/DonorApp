@@ -3,14 +3,14 @@ package business.DTOs;
 public class DonorQualificationStepDTO {
 
     private String firstName;
-    private int currentStep;
+    private int stepNumber;
     private String stepTitle;
 
     private boolean Completed;
 
-    public DonorQualificationStepDTO(String firstName, int currentStep, String stepTitle, boolean Completed){
+    public DonorQualificationStepDTO(String firstName, int stepNumber, String stepTitle, boolean Completed){
         this.firstName = firstName;
-        this.currentStep = currentStep;
+        this.stepNumber = stepNumber;
         this.stepTitle = stepTitle;
         this.Completed = Completed;
     }
@@ -27,12 +27,12 @@ public class DonorQualificationStepDTO {
         this.firstName = firstName;
     }
 
-    public int getCurrentStep() {
-        return currentStep;
+    public int getStepNumber() {
+        return stepNumber;
     }
 
-    public void setCurrentStep(int currentStep) {
-        this.currentStep = currentStep;
+    public void setStepNumber(int stepNumber) {
+        this.stepNumber = DonorQualificationStepDTO.this.stepNumber;
     }
 
     public String getStepTitle() {
@@ -51,7 +51,7 @@ public class DonorQualificationStepDTO {
     public String toString() {
         return "DonorQualificationStepDTO{" +
                 "firstName='" + firstName + '\'' +
-                ", currentStep=" + currentStep +
+                ", stepNumber=" + stepNumber + '\''+
                 ", stepTitle='" + stepTitle + '\'' +
                 ", Completed='" + Completed + '\'' +
                 '}';
