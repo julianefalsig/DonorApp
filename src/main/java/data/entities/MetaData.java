@@ -16,6 +16,7 @@ public class MetaData {
     private boolean isCompleted;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "QualificationStepID")
     @JsonIgnore
     private QualificationStep qualificationStep;

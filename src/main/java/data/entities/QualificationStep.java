@@ -25,10 +25,10 @@ public class QualificationStep {
 
     @ManyToOne
     @JoinColumn (name = "DonorID")
-    @JsonIgnore
+    @JsonIgnore // Prevents circular reference during serialization
     private Donor donor;
 
-    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private List<MetaData> metaDataList = new ArrayList<>();
 
     //Empty constructor

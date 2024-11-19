@@ -23,9 +23,8 @@ public class DonorServiceEndpoint {
     @GET
     @Path("{id}")
     public Donor getdonor(@PathParam("id") int id){
-        return donorService.getdonor(id);
+        return donorService.getdonor(id);}
 
-}
 }
 
 

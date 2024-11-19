@@ -38,6 +38,19 @@ public class DonorService {
         }
         return donors;
     }
+    public Donor getdonor(int id) {
+        Session session = sessionFactory.openSession();
+        try{
+            transaction=session.beginTransaction();
+            String hql = "SELECT d FROM Donor d";
+            Donor query = session.get(Donor.class,id);
+            return query;
+        } catch (Exception e)
+        {throw new ServiceException("Failed to fetch donor", e);
+        }finally {
+            session.close();
+        }
+    }
 
     public Donor getdonor(int id) {
         Session session = sessionFactory.openSession();
