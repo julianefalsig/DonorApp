@@ -28,7 +28,7 @@ public class QualificationStep {
     @JsonIgnore // Prevents circular reference during serialization
     private Donor donor;
 
-    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private List<MetaData> metaDataList = new ArrayList<>();
 
     //Empty constructor
