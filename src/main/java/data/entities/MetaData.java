@@ -1,5 +1,6 @@
 package data.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,9 +17,10 @@ public class MetaData {
 
     @ManyToOne
     @JoinColumn(name = "QualificationStepID")
+    @JsonIgnore
     private QualificationStep qualificationStep;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "TemplateID")
     private MetaDataTemplate metaDataTemplate;
 

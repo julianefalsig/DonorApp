@@ -2,6 +2,7 @@ package business.services;
 
 import business.DTOs.DonorQualificationStepDTO;
 import data.HibernateController;
+import data.entities.Donor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,7 +23,7 @@ public class DonorService {
 
         try {
             transaction = session.beginTransaction();
-            String hql = "SELECT d.firstName FROM Donor d";
+            String hql = "SELECT d.donorId FROM Donor d";
             Query<String> query = session.createQuery(hql, String.class);
             donors = query.getResultList();
 
@@ -38,4 +39,16 @@ public class DonorService {
         return donors;
     }
 
+    public Donor getdonor(int id) {
+        Session session = sessionFactory.openSession();
+        try{
+            transaction=session.beginTransaction();
+            String hql = "SELECT d FROM Donor d";
+            Donor query = session.get(Donor.class,id);
+            return query;
+        } catch (Exception e) {throw new ServiceException("Failed to fetch donor", e);
+        }finally {
+            session.close();
+        }
+    }
 }

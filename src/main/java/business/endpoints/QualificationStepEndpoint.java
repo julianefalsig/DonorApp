@@ -3,9 +3,7 @@ package business.endpoints;
 import business.DTOs.DonorQualificationStepDTO;
 import business.services.DonorService;
 import business.services.QualificationStepService;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
@@ -19,4 +17,10 @@ public class QualificationStepEndpoint {
     public List<DonorQualificationStepDTO> getQualificationStep() {
         return qualificationStepService.getQualificationStepOnDonor(852);  // Delegate to service layer
     }
+    @POST
+    @Path("/{id}/completed/{done}")
+    public void setCompleted(@PathParam("id") int completed, @PathParam("done") Boolean done)
+    {
+        System.out.println(completed);
+           }
 }

@@ -1,5 +1,6 @@
 package data.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,9 +25,10 @@ public class QualificationStep {
 
     @ManyToOne
     @JoinColumn (name = "DonorID")
+    @JsonIgnore
     private Donor donor;
 
-    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "qualificationStep", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<MetaData> metaDataList = new ArrayList<>();
 
     //Empty constructor

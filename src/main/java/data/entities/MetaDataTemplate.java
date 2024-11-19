@@ -1,4 +1,5 @@
 package data.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,9 @@ public class MetaDataTemplate {
     private String infoText;
 
     @OneToMany(mappedBy = "metaDataTemplate", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<MetaData> metaDataList;
+
 
     public MetaDataTemplate(){}
 
