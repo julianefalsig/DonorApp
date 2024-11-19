@@ -11,6 +11,7 @@ public class SubStepService {
     private HibernateController hibernateController =
             new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
     private SessionFactory sessionFactory = hibernateController.getSessionFactory();
+/*
 
     // Fetch current substeps on a qualfificationstep
     public List<DonorQualificationSubStepDTO> getSubStepsOnId(int qualificationStepID) {
@@ -37,4 +38,5 @@ public class SubStepService {
         }
         return QualificationSubStep;
     }
+*/
 }

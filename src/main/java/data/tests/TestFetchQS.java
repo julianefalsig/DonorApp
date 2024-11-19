@@ -1,5 +1,6 @@
 package data.tests;
 
+import business.DTOs.DonorQualificationSubStepDTO;
 import org.testng.annotations.Test;
 import business.DTOs.DonorQualificationStepDTO;
 import business.services.ServiceException;
@@ -45,6 +46,12 @@ public class TestFetchQS {
             System.out.println(donor1.toString());
             donor1.getQualificationSteps().forEach(qualificationStep -> System.out.println(qualificationStep.toString()));
 
+            //DonorQualificationStepDTO dqs = new DonorQualificationStepDTO();
+            //donor1.getQualificationSteps().forEach(qualificationStep -> { });
+            //dqs.setFirstName(donor1.getFirstName());
+            //dqs.setStepNumber(donor1.);
+
+
             String hql2 = "SELECT d FROM Donor d JOIN FETCH d.qualificationSteps WHERE d.donorId = :donorId";
             Donor donor2 = session.createQuery(hql2, Donor.class)
                     .setParameter("donorId", 952)
@@ -53,7 +60,6 @@ public class TestFetchQS {
 
             Donor donor3 = session.get(Donor.class, 952);
             System.out.println(donor3);
-
 
         } catch (Exception e) {
             if (transaction != null) {
