@@ -28,7 +28,7 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             // change donor name here
-            donor.setFirstName("Anton");
+            donor.setFirstName("Kevin");
 
 
             List<String> stepTitleList = new ArrayList<> ();
@@ -43,8 +43,22 @@ public class TestCreate2 {
                 boolean isCompleted ;
                 if(i==0){isCompleted = true;} else isCompleted = false;
                 QualificationStep qualificationStep = new QualificationStep(i+1, stepTitleList.get(i),isCompleted, donor);
-                qualificationStep.addMetaData(new MetaData(true, new MetaDataTemplate(152, null)));
+                if(qualificationStep.getStepNumber()== 2){
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(352, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(353, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(354, null)));
+                }if(qualificationStep.getStepNumber()==3){
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(402, null)));
+                }if(qualificationStep.getStepNumber()==4){
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(302, null)));
+                } else if (qualificationStep.getStepNumber() ==5) {
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(403, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(404, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(405, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(354, null)));
+                }
                 donor.addQualificationStep(qualificationStep);
+
             }
             session.persist(donor);
             transaction.commit();
