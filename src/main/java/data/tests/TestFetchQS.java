@@ -61,6 +61,9 @@ public class TestFetchQS {
             Donor donor3 = session.get(Donor.class, 952);
             System.out.println(donor3);
 
+            //String hql3 = "SELECT d FROM Donor d JOIN FETCH d.qualificationSteps WHERE d.donorId = :donorId";
+            //Donor donor4 = session.get(Don)
+
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
