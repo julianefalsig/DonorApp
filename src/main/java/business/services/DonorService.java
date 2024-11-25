@@ -51,5 +51,34 @@ public class DonorService {
             session.close();
         }
     }
+    public void updateIsCompleted(int stepId, boolean status) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            // HQL to update the isCompleted field
+            String hql = "UPDATE MetaData m SET m.isCompleted = :status WHERE m.subStepID = :stepId";
+            Query query = session.createQuery(hql);
+            query.setParameter("status", status);
+            query.setParameter("stepId", stepId);
+
+            int rowsAffected = query.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new ServiceException("No step found with ID: " + stepId);
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new ServiceException("Failed to update isCompleted for stepId: " + stepId, e);
+        } finally {
+            session.close();
+        }
+    }
+
 
 }
