@@ -17,38 +17,39 @@ public class Main  {
 
         DonorService donorService = new DonorService();
 
-        donorService.updateIsCompleted(112, true);
+        //donorService.updateIsCompleted(103, true);
+        //System.out.println("Metadata updated");
 
-        /*
+
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
             donorFirstNames.forEach(System.out::println);  // This will print to the terminal
         } else {
             System.out.println("No donors found or donor service returned null.");
         }
-        */
+
         QualificationStepService qualificationStepService = new QualificationStepService();
 
         //Testing qualstepservice
     /*
         List<QualificationStep> qs;
         qs = qualificationStepService.getQualificationStepOnDonor(952);
-*/
+    */
 
         //Testing qualstep service with the DTO
         List <DonorQualificationStepDTO> dqsDTO;
         dqsDTO = qualificationStepService.getQualificationStepOnDonor(952);
         System.out.println(dqsDTO.toString());
 
-/*        //Testing result of query
+    /*
+        //Testing result of query
         SubStepService subStepService = new SubStepService();
         List<DonorQualificationSubStepDTO> ldqssDTO;
         ldqssDTO = subStepService.getSubStepsOnId(303);
         for (DonorQualificationSubStepDTO d :ldqssDTO){
             System.out.println(d.toString());
-        }*/
-
-
+        }
+    */
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
         String port = System.getenv("DonorApp2");
@@ -66,7 +67,6 @@ public class Main  {
         jerseyServlet.addInitParameter("jersey.config.server.provider.packages", "business");  // Pakke hvor dine ressourcer findes
         jerseyServlet.setLoadOnStartup(1);
         jerseyServlet.addMapping("/api/*");  // Map REST endpoints til /api/
-
 
         try {
             tomcat.start();

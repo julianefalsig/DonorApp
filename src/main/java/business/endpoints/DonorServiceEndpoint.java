@@ -24,7 +24,7 @@ public class DonorServiceEndpoint {
 
     @POST
     @Path("/{id}/completed/{done}")
-    public void setCompleted(@PathParam("id") int subStepId, @PathParam("done") Boolean status){
+    public void setCompleted(@PathParam("id") int subStepId, @PathParam("done") boolean status){
         donorService.updateIsCompleted(subStepId, status);     }
 }
 
