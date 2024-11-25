@@ -25,6 +25,7 @@ public class TestCreate4 {
 
         // Start a transaction
         Transaction transaction = session.beginTransaction();
+
         System.out.println("Connection to database established.");
 /*
         try {
