@@ -20,8 +20,4 @@ public class QualificationStepEndpoint {
     public List<DonorQualificationStepDTO> getQualificationStep() {
         return qualificationStepService.getQualificationStepOnDonor(952);
     }
-    @POST
-    @Path("/{id}/completed/{done}")
-    public void setCompleted(@PathParam("id") int completed, @PathParam("done") Boolean done){
-        System.out.println(completed);       }
 }

@@ -14,6 +14,8 @@ public class Donor {
     private int donorId;
     @Column(name = "FirstName")
     private String firstName;
+
+
     @OneToMany (mappedBy = "donor", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true) //delete on cascade --> id a donor is deleted, its related qualificationsteps will be deleted
     private List<QualificationStep> qualificationSteps = new ArrayList<>();
 

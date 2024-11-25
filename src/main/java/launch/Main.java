@@ -1,5 +1,6 @@
 package launch;
 import business.DTOs.DonorQualificationStepDTO;
+import business.services.DonorService;
 import business.services.testServices.QualificationStepService;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
@@ -13,8 +14,12 @@ public class Main  {
     public static void main(String[] args) {
 
         //Testing that the donorService is working
-        /*
+
         DonorService donorService = new DonorService();
+
+        donorService.updateIsCompleted(112, true);
+
+        /*
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
             donorFirstNames.forEach(System.out::println);  // This will print to the terminal
