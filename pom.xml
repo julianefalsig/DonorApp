@@ -109,8 +109,12 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.2.0.Final</version>
         </dependency>
-
-
+        <!-- HTTP client -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.13.11</version>
+        </dependency>
 
         <!-- Database connector -->
         <dependency>
