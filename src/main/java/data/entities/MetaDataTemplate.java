@@ -22,6 +22,7 @@ public class MetaDataTemplate {
     @JsonIgnore
     private List<MetaData> metaDataList;
 
+
     public MetaDataTemplate(){}
 
     // Argument constructor

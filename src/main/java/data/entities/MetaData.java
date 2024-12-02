@@ -18,6 +18,7 @@ public class MetaData {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "QualificationStepID")
+    @JsonIgnore
     private QualificationStep qualificationStep;
 
     @ManyToOne(fetch = FetchType.EAGER)
