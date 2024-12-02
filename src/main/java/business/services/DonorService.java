@@ -23,7 +23,7 @@ public class DonorService {
 
         try {
             transaction = session.beginTransaction();
-            String hql = "SELECT d.donorId FROM Donor d";
+            String hql = "SELECT d.firstName FROM Donor d";
             Query<String> query = session.createQuery(hql, String.class);
             donors = query.getResultList();
 
@@ -76,20 +76,6 @@ public class DonorService {
             }
             throw new ServiceException("Failed to update isCompleted for stepId: " + stepId, e);
         } finally {
-            session.close();
-        }
-    }
-
-
-    public Donor getdonor(int id) {
-        Session session = sessionFactory.openSession();
-        try{
-            transaction=session.beginTransaction();
-            String hql = "SELECT d FROM Donor d";
-            Donor query = session.get(Donor.class,id);
-            return query;
-        } catch (Exception e) {throw new ServiceException("Failed to fetch donor", e);
-        }finally {
             session.close();
         }
     }
