@@ -51,7 +51,7 @@ public class DonorService {
             session.close();
         }
     }
-    public void updateIsCompleted(int stepId, boolean status) {
+    public void updateSubIsCompleted(int stepId, boolean status) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
 
@@ -75,6 +75,36 @@ public class DonorService {
                 transaction.rollback();
             }
             throw new ServiceException("Failed to update isCompleted for stepId: " + stepId, e);
+        } finally {
+            session.close();
+        }
+    }
+    public void updateIsCompleted(int donorId, int stepNumber , boolean status) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            // HQL to update the isCompleted field
+            String hql = "UPDATE QualificationStep q SET q.isCompleted = :status WHERE q.donor.donorId = :donorId AND q.stepNumber= :stepNumber";
+            Query query = session.createQuery(hql);
+            query.setParameter("donorId", donorId);
+            query.setParameter("stepNumber", stepNumber);
+            query.setParameter("status", status);
+
+
+            int rowsAffected = query.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new ServiceException("No donor found with ID: " + donorId);
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new ServiceException("Failed to update step number: " + stepNumber + "For donor: "+ donorId, e);
         } finally {
             session.close();
         }

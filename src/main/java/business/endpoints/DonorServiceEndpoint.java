@@ -16,16 +16,22 @@ public class DonorServiceEndpoint {
     public List<String> getDonorFirstNames() {
         return donorService.getAllDonors();  // Delegate to service layer
     }
-
     @GET
     @Path("{id}")
     public Donor getdonor(@PathParam("id") int id){
         return donorService.getdonor(id);}
 
     @POST
-    @Path("/{id}/completed/{done}")
-    public void setCompleted(@PathParam("id") int subStepId, @PathParam("done") boolean status){
-        donorService.updateIsCompleted(subStepId, status);     }
+    @Path("/{id}/substep-completed/{done}")
+    public void setSubStepCompleted(@PathParam("id") int subStepId, @PathParam("done") boolean status){
+        donorService.updateSubIsCompleted(subStepId, status);
+    }
+
+    @POST
+    @Path("/{id}/step-completed/{stepNumber}/{done}")
+    public void setCompleted(@PathParam("id") int donorId, @PathParam("stepNumber") int stepNumber, @PathParam("done") boolean status) {
+        donorService.updateIsCompleted(donorId, stepNumber, status);
+    }
 }
 
 
