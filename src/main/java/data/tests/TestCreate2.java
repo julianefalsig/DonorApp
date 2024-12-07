@@ -28,7 +28,7 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             // change donor name here
-            donor.setFirstName("Kevin");
+            donor.setFirstName("Janick");
 
 
             List<String> stepTitleList = new ArrayList<> ();

@@ -17,9 +17,6 @@ public class Main  {
 
         DonorService donorService = new DonorService();
 
-        //donorService.updateIsCompleted(103, true);
-        //System.out.println("Metadata updated");
-
 
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
@@ -29,6 +26,10 @@ public class Main  {
         }
 
         QualificationStepService qualificationStepService = new QualificationStepService();
+
+        //Testing udpdateStep
+        //donorService.updateIsCompleted(1052, 2, true);
+        //System.out.println("Donor with Id:"+1052 + " should be update. Check DB!");
 
         //Testing qualstepservice
     /*
