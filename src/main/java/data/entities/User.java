@@ -11,9 +11,16 @@ public class User {
     @Column(name = "username")
     private String username;
 
+    @Column (name= "password")
     private String password;
 
-    // TODO: Remember Getters and setters as well
+    // Constructor
+    public User(){}
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+
     // Getter for id
     public int getId() {
         return id;
@@ -39,9 +46,4 @@ public class User {
         this.password = password;
     }
 
-    public User(){}
-    public User(String username, String password){
-        this.username = username;
-        this.password = password;
-    }
 }
