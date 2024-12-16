@@ -2,6 +2,8 @@ package launch;
 import business.DTOs.DonorQualificationStepDTO;
 import business.services.DonorService;
 import business.services.testServices.QualificationStepService;
+import business.services.testServices.UserService;
+import data.entities.User;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
@@ -16,7 +18,7 @@ public class Main  {
         //Testing that the donorService is working
 
         DonorService donorService = new DonorService();
-
+        UserService us =  new UserService();
 
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
@@ -25,7 +27,11 @@ public class Main  {
             System.out.println("No donors found or donor service returned null.");
         }
 
+        User user = us.getUser("Ole");
+        System.out.println(user.getId()+ " "+ user.getUsername());
+
         QualificationStepService qualificationStepService = new QualificationStepService();
+
 
         //Testing udpdateStep
         //donorService.updateIsCompleted(1052, 2, true);

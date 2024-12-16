@@ -28,7 +28,7 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             // change donor name here
-            donor.setFirstName("Janick");
+            donor.setFirstName("Peter");
 
 
             List<String> stepTitleList = new ArrayList<> ();
@@ -51,6 +51,7 @@ public class TestCreate2 {
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(402, null)));
                 }if(qualificationStep.getStepNumber()==4){
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(302, null)));
+                    qualificationStep.addMetaData(new MetaData(false,new MetaDataTemplate(252, null)));
                 } else if (qualificationStep.getStepNumber() ==5) {
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(403, null)));
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(404, null)));
