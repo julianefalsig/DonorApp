@@ -128,6 +128,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <!--Importér Java-JWT til at lave JSON-webtokens -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.1.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

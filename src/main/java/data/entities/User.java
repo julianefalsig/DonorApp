@@ -11,6 +11,8 @@ public class User {
     @Column(name = "username")
     private String username;
 
+    private String password;
+
     // TODO: Remember Getters and setters as well
     // Getter for id
     public int getId() {
@@ -27,5 +29,19 @@ public class User {
     // Setter for username
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User(){}
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
     }
 }
