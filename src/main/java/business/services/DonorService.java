@@ -1,6 +1,4 @@
 package business.services;
-
-import business.DTOs.DonorQualificationStepDTO;
 import data.HibernateController;
 import data.entities.Donor;
 import org.hibernate.Session;
