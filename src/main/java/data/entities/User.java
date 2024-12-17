@@ -8,17 +8,25 @@ public class User {
     @GeneratedValue
     @Column(name = "id")
     private int id;
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column (name= "password")
     private String password;
 
-    // Constructor
-    public User(){}
-    public User(String username, String password){
+    @OneToOne(mappedBy ="user", cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+    private Donor donor;
+
+    // Constructors
+    public User(){} //empty one for flexibility
+    public User(String username, String password){ //one for creating "Superusers", does not have a relation to donor
         this.username = username;
         this.password = password;
+    }
+    public User(String username, String password, Donor donor){ //one for users that are donors
+        this.username = username;
+        this.password = password;
+        this.donor = donor;
     }
 
     // Getter for id
@@ -44,6 +52,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Donor getDonor(){return donor;}
+    public void setDonor(Donor donor){
+        this.donor = donor;
     }
 
 }

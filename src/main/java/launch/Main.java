@@ -1,13 +1,14 @@
 package launch;
-import business.DTOs.DonorQualificationStepDTO;
 import business.services.DonorService;
-import business.services.testServices.QualificationStepService;
-import business.services.testServices.UserService;
+import business.services.LoginService;
+import data.HibernateController;
 import data.entities.User;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.io.File;
 import java.util.List;
@@ -15,10 +16,11 @@ import java.util.List;
 public class Main  {
     public static void main(String[] args) {
 
-        //Testing that the donorService is working
 
+        //Testing that the donorService is working
         DonorService donorService = new DonorService();
-        UserService us =  new UserService();
+        LoginService ls = new LoginService();
+        User user = new User();
 
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
@@ -27,26 +29,10 @@ public class Main  {
             System.out.println("No donors found or donor service returned null.");
         }
 
-        User user = us.getUser("Ole");
-        System.out.println(user.getId()+ " "+ user.getUsername());
 
-        QualificationStepService qualificationStepService = new QualificationStepService();
+        System.out.println(user = ls.validateUser("niko", "kodeord"));
 
 
-        //Testing udpdateStep
-        //donorService.updateIsCompleted(1052, 2, true);
-        //System.out.println("Donor with Id:"+1052 + " should be update. Check DB!");
-
-        //Testing qualstepservice
-    /*
-        List<QualificationStep> qs;
-        qs = qualificationStepService.getQualificationStepOnDonor(952);
-    */
-
-        //Testing qualstep service with the DTO
-        List <DonorQualificationStepDTO> dqsDTO;
-        dqsDTO = qualificationStepService.getQualificationStepOnDonor(952);
-        System.out.println(dqsDTO.toString());
 
     /*
         //Testing result of query

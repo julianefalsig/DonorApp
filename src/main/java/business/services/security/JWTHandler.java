@@ -1,5 +1,4 @@
 package business.services.security;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -26,7 +25,7 @@ public class JWTHandler {
                     .withClaim("user", s)
                     .withExpiresAt(expiry.getTime())
                     .sign(Algorithm.HMAC512(key));
-            System.out.println(token);
+            System.out.println("Token exchanged: "+token);
             return token;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
