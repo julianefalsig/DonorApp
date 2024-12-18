@@ -49,6 +49,26 @@ public class DonorService {
             session.close();
         }
     }
+/*
+
+    public Donor getDonorByUser(String username) {
+        Session session = sessionFactory.openSession();
+        try{
+            transaction=session.beginTransaction();
+            String hql = "SELECT d FROM Donor d WHERE .username =:user";
+            Query query = session.createQuery(hql);
+            query.setParameter("user", username);
+
+            return query;
+        } catch (Exception e)
+        {throw new ServiceException("Failed to fetch donor", e);
+        }finally {
+            session.close();
+        }
+    }
+*/
+
+
     public void updateSubIsCompleted(int stepId, boolean status) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;

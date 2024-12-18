@@ -23,10 +23,10 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             User user = new User();
-            donor.setFirstName("Bastian");
+            donor.setFirstName("Henrik");
 
             ///////////////SKIFT USERNAME skal være unikt/////////////
-            user.setUsername("Bas");  user.setPassword("kodeord");
+            user.setUsername("Henrik");  user.setPassword("kodeord");
             ///////////////////SKIFT USERNAME///////////////////////////////
 
 
