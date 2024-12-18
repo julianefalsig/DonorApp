@@ -22,19 +22,15 @@ public class LoginServiceEndpoint {
         if (login != null) {
             User user = loginService.validateUser(login.getUsername(), login.getPassword());
             if (user != null) {
+                user.setPassword("");
                 return JWTHandler.generateJwtToken(user);
             }
         }
         throw new NotAuthorizedException("Incorrect username/password");
     }
-
-
-
-
-
-    @POST
+   /* @POST
     @Path("tokentest")
     public User postToken(String token) {
         return JWTHandler.validate(token);
-    }
+    }*/
 }

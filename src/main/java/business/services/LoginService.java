@@ -39,5 +39,6 @@ public class LoginService {
             throw new RuntimeException("Error validating user", e);
         }
     }
+
 }
 
