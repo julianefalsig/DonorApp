@@ -9,6 +9,7 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.util.List;
@@ -28,11 +29,18 @@ public class Main  {
         } else {
             System.out.println("No donors found or donor service returned null.");
         }
+        //Tester validate user metode
+        System.out.println(user = ls.validateUser("Soffen", "kodeord"));
 
+        //hashing test eksempel
+        String password = "kodeord";
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+        System.out.println(hashed);
 
-        System.out.println(user = ls.validateUser("niko", "kodeord"));
-
-
+        if (BCrypt.checkpw(password, hashed))
+            System.out.println("It matches");
+        else
+            System.out.println("It does not match");
 
     /*
         //Testing result of query
