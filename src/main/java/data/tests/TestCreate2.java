@@ -4,10 +4,13 @@ import data.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//TEST CLASS FOR CREATING DONORS WITH ALL RELATED DATA
 @Test
 public class TestCreate2 {
     public void testCreate2() {
@@ -23,12 +26,15 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             User user = new User();
-            donor.setFirstName("Henrik");
+            donor.setFirstName("Jeppe");
 
             ///////////////SKIFT USERNAME skal være unikt/////////////
-            user.setUsername("Henrik");  user.setPassword("kodeord");
+            user.setUsername("Jep");
             ///////////////////SKIFT USERNAME///////////////////////////////
 
+            String password = "kodeord";
+            String hashedPW = BCrypt.hashpw(password, BCrypt.gensalt());
+            user.setPassword(hashedPW);
 
             // Set the relationship
             donor.setUser(user);

@@ -26,12 +26,17 @@ public class JWTHandler {
     public static String generateJwtToken(User user) {
         Calendar expiry = Calendar.getInstance();
         expiry.add(Calendar.MINUTE, TOKEN_EXPIRY);
-
-        // Create a minimal payload with essential information only
         Map<String, Object> userPayload = new HashMap<>();
-        userPayload.put("id", user.getId());
-        userPayload.put("username", user.getUsername());
-        userPayload.put("donorId", user.getDonor().getDonorId());
+
+        if (user.getDonor() != null) {  // If the User is a donor
+            // Create a minimal payload with essential information only
+            userPayload.put("id", user.getId());
+            userPayload.put("username", user.getUsername());
+            userPayload.put("donorId", user.getDonor().getDonorId());
+        } else {// User is a superuser
+            userPayload.put("id", user.getId());
+            userPayload.put("username", user.getUsername());
+        }
 
         try {
             // Convert payload to JSON string

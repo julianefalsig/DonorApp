@@ -1,4 +1,4 @@
-package business.services;
+package business.services.security;
 import jakarta.annotation.Priority;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;

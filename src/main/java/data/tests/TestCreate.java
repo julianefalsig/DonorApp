@@ -6,11 +6,12 @@ import data.entities.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 import org.testng.annotations.Test;
 
 @Test
 public class TestCreate {
-
+// TEST CLASS FOR CREATING USERS/SUPERUSERS
     public void testCreate() {
         //opretter forbindelse til hybernate controlleren
         HibernateController hibernateController =
@@ -20,15 +21,14 @@ public class TestCreate {
         //starter en transaktion
         Transaction transaction = session.beginTransaction();
 
-        //opretter en ny bruger
-        User user = new User();
-        Donor donor = new Donor();
-        System.out.println("UserID before commit: " + user.getId());
-        user.setUsername("henrik");
-        donor.setFirstName("Harry");
+        //Set username and password
+        String username = "Hanne"; //ALWAYS CHANGES
+        String password = "super";
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+
+        User user = new User(username, hashed);
         //gemmer brugeren i databasaen
         session.persist(user);
-        session.persist(donor);
         transaction.commit();
         //printer det nye ID
         System.out.println("UserID after commit: " + user.getId());

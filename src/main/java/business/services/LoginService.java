@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginService {
 
@@ -15,30 +16,35 @@ public class LoginService {
     Transaction transaction = null;
 
 
-/*    public LoginService(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-*/
     public User validateUser(String username, String password) {
-
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
 
-            String hql = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password";
+            // Retrieve user by username
+            String hql = "SELECT u FROM User u WHERE u.username = :username";
             Query<User> query = session.createQuery(hql, User.class);
             query.setParameter("username", username);
-            query.setParameter("password", password);
 
-            User user = query.uniqueResult();
+            User user = query.getSingleResult();
             transaction.commit();
 
-            return user;
+            if (user == null) { //if the user doesn't exist
+            return null;
+            }
+
+            // Validate the provided password with the hashed password
+            if (BCrypt.checkpw(password, user.getPassword())) {
+            return user; // Password matches
+            } else {
+            return null; // Password doesn't match
+            }
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            throw new RuntimeException("Error validating user", e);
-        }
+        if (transaction != null) transaction.rollback();
+        throw new RuntimeException("Error validating user", e);
     }
+}
+
 
 }
 
