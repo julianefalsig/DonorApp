@@ -1,4 +1,4 @@
-package business.services.security;
+package business.security;
 
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;

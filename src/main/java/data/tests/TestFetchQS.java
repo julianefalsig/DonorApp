@@ -1,8 +1,6 @@
 package data.tests;
 
-import business.DTOs.DonorQualificationSubStepDTO;
 import org.testng.annotations.Test;
-import business.DTOs.DonorQualificationStepDTO;
 import business.services.ServiceException;
 import data.HibernateController;
 import data.entities.Donor;
@@ -11,9 +9,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.testng.annotations.Test;
-
-import java.util.List;
 
 @Test
 public class TestFetchQS {

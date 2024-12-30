@@ -1,7 +1,8 @@
-package business.DTOs;
+package business.unused_DTOs;
 //Class created for fetching the Substep data for the donor
 
 /// ---- INACTIVE CLASS ---- \\\\\
+
 public class DonorQualificationSubStepDTO {
     private String infoText;
     private boolean isCompleted;

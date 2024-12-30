@@ -1,4 +1,4 @@
-package business;
+package business.security;
 
 import jakarta.annotation.Priority;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 
 import java.io.IOException;
+
 //The class handles filtering of API requests
 @Provider
 @Priority(500)

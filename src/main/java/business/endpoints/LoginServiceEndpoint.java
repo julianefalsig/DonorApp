@@ -1,7 +1,7 @@
 package business.endpoints;
 import business.services.LoginService;
-import business.services.security.LoginData;
-import business.services.security.JWTHandler;
+import business.security.LoginData;
+import business.security.JWTHandler;
 import data.entities.User;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
