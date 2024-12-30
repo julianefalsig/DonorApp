@@ -21,7 +21,9 @@ public class AuthFilter implements ContainerRequestFilter {
 
         // Skip authentication for the login endpoint
         if ("login".equals(path)) {
+            System.out.println("It was a login request");
             return;
+
         }
 
         // Retrieve the Authorization header

@@ -26,8 +26,8 @@ public class Main  {
         //Local server setup
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
-        String port = System.getenv("DonorApp2");
-        port = port != null ? port : "8082";
+        String port = System.getenv("port");
+        port = port != null ? port : "8082"; // Når vi kører lokal server kører vi på 8082
 
         tomcat.setPort(Integer.parseInt(port));
         tomcat.getConnector();
