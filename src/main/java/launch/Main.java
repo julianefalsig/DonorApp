@@ -1,56 +1,29 @@
 package launch;
 import business.services.DonorService;
-import business.services.LoginService;
-import data.HibernateController;
-import data.entities.User;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.mindrot.jbcrypt.BCrypt;
+
 
 import java.io.File;
 import java.util.List;
 
 public class Main  {
     public static void main(String[] args) {
-
-
-        //Testing that the donorService is working
-        DonorService donorService = new DonorService();
-        LoginService ls = new LoginService();
-        User user = new User();
+        //Testing that we have DB connections
+       /*
+       DonorService donorService = new DonorService();
 
         List<String> donorFirstNames = donorService.getAllDonors();
         if (donorFirstNames != null && !donorFirstNames.isEmpty()) {
-            donorFirstNames.forEach(System.out::println);  // This will print to the terminal
+            donorFirstNames.forEach(System.out::println);  //Printing all donornames to the DB
         } else {
             System.out.println("No donors found or donor service returned null.");
         }
-        //Tester validate user metode
-        System.out.println(user = ls.validateUser("Soffen", "kodeord"));
+        */
 
-        //hashing test eksempel
-        String password = "kodeord";
-        String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-        System.out.println(hashed);
-
-        if (BCrypt.checkpw(password, hashed))
-            System.out.println("It matches");
-        else
-            System.out.println("It does not match");
-
-    /*
-        //Testing result of query
-        SubStepService subStepService = new SubStepService();
-        List<DonorQualificationSubStepDTO> ldqssDTO;
-        ldqssDTO = subStepService.getSubStepsOnId(303);
-        for (DonorQualificationSubStepDTO d :ldqssDTO){
-            System.out.println(d.toString());
-        }
-    */
+        //Local server setup
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
         String port = System.getenv("DonorApp2");

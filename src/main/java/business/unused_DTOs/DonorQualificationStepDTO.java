@@ -1,4 +1,4 @@
-package business.DTOs;
+package business.unused_DTOs;
 
 //Class created for fetching the qualificationstep data for the donor
 
