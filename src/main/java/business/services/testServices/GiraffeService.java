@@ -8,6 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.Arrays;
 import java.util.List;
+/*
 
 @Produces(MediaType.APPLICATION_JSON)
 @Path("giraffes")
@@ -19,4 +20,5 @@ public class GiraffeService {
         return giraffes;
     }
 }
+*/
 

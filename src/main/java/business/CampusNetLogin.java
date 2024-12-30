@@ -1,5 +1,6 @@
 package business;
 
+/*
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -29,4 +30,4 @@ public class CampusNetLogin {
         return body; //Just return the result for now
     }
 
-}
+}*/

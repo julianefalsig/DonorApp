@@ -11,48 +11,48 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-public class QualificationStepService {
-    private HibernateController hibernateController =
-            new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
-    private SessionFactory sessionFactory = hibernateController.getSessionFactory();
-
-    public List<DonorQualificationStepDTO> getQualificationStepOnDonor(int donorId) {
-        Session session = sessionFactory.openSession();
-        List<DonorQualificationStepDTO> qualificationStepDTOs = null;
-        Transaction transaction = null;
-
-        try {
-            transaction = session.beginTransaction();
-
-            // Fetch the Donor along with their QualificationSteps
-            String hql = "SELECT d FROM Donor d LEFT JOIN FETCH d.qualificationSteps WHERE d.donorId = :donorId";
-            Query<Donor> donorQuery = session.createQuery(hql, Donor.class);
-            donorQuery.setParameter("donorId", donorId);
-            Donor donor = donorQuery.getSingleResult();
-
-            // Map QualificationStep entities to DonorQualificationStepDTO
-            qualificationStepDTOs = donor.getQualificationSteps().stream()
-                    .map(step -> new DonorQualificationStepDTO(
-                            donor.getFirstName(),
-                            step.getStepNumber(),
-                            step.getTitle(),
-                            step.getIsCompleted()))
-                    .collect(Collectors.toList());
-
-            transaction.commit();
-
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            throw new ServiceException("Failed to get the donor qualification steps", e);
-        } finally {
-            session.close();
-        }
-
-        return qualificationStepDTOs;
-    }
+//
+//public class QualificationStepService {
+//    private HibernateController hibernateController =
+//            new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
+//    private SessionFactory sessionFactory = hibernateController.getSessionFactory();
+//
+//    public List<DonorQualificationStepDTO> getQualificationStepOnDonor(int donorId) {
+//        Session session = sessionFactory.openSession();
+//        List<DonorQualificationStepDTO> qualificationStepDTOs = null;
+//        Transaction transaction = null;
+//
+//        try {
+//            transaction = session.beginTransaction();
+//
+//            // Fetch the Donor along with their QualificationSteps
+//            String hql = "SELECT d FROM Donor d LEFT JOIN FETCH d.qualificationSteps WHERE d.donorId = :donorId";
+//            Query<Donor> donorQuery = session.createQuery(hql, Donor.class);
+//            donorQuery.setParameter("donorId", donorId);
+//            Donor donor = donorQuery.getSingleResult();
+//
+//            // Map QualificationStep entities to DonorQualificationStepDTO
+//            qualificationStepDTOs = donor.getQualificationSteps().stream()
+//                    .map(step -> new DonorQualificationStepDTO(
+//                            donor.getFirstName(),
+//                            step.getStepNumber(),
+//                            step.getTitle(),
+//                            step.getIsCompleted()))
+//                    .collect(Collectors.toList());
+//
+//            transaction.commit();
+//
+//        } catch (Exception e) {
+//            if (transaction != null) {
+//                transaction.rollback();
+//            }
+//            throw new ServiceException("Failed to get the donor qualification steps", e);
+//        } finally {
+//            session.close();
+//        }
+//
+//        return qualificationStepDTOs;
+//    }
 
 /*
     ///// V. 2 new get qualificationstep attempt /////////////
@@ -110,5 +110,5 @@ public class QualificationStepService {
             session.close();
         }
         return qualificationStepOnDonor;
-    }*/
-}
+    }
+}*/

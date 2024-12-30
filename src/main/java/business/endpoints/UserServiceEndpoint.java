@@ -1,4 +1,5 @@
 package business.endpoints;
+/*
 
 import business.services.security.NoImplementationException;
 import data.entities.User;
@@ -20,3 +21,4 @@ public class UserServiceEndpoint {
             throw new NotFoundException("Could not find the resources you were looking for");
         }
     }
+*/

@@ -40,11 +40,6 @@
             <artifactId>jakarta.validation-api</artifactId>
             <version>3.0.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>3.0.6</version>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
         <dependency>
@@ -104,18 +99,19 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.1.4.Final</version>
         </dependency>
-        <!-- connection pool NOTE: Error in maven dependency causes connection pool to fail
-               <!- connection pool -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.hibernate.orm</groupId>-->
-        <!--            <artifactId>hibernate-c3p0</artifactId>-->
-        <!--            <version>6.1.4.Final</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.2.0.Final</version>
+            <version>8.0.0.Final</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
         <!-- HTTP client -->
         <dependency>
             <groupId>com.konghq</groupId>

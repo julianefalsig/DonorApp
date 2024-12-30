@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// Class defining LoginData used in the DonorServiceEndpoint
 @Data
 @NoArgsConstructor
 @Getter

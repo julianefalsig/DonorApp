@@ -1,5 +1,8 @@
 package business.DTOs;
 
+//Class created for fetching the qualificationstep data for the donor
+
+/// ---- INACTIVE CLASS ---- \\\\\
 public class DonorQualificationStepDTO {
 
     private String firstName;

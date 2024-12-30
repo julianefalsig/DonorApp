@@ -26,10 +26,10 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             User user = new User();
-            donor.setFirstName("Jeppe");
+            donor.setFirstName("Frants");
 
             ///////////////SKIFT USERNAME skal være unikt/////////////
-            user.setUsername("Jep");
+            user.setUsername("frants");
             ///////////////////SKIFT USERNAME///////////////////////////////
 
             String password = "kodeord";
@@ -69,9 +69,10 @@ public class TestCreate2 {
                 if (qualificationStep.getStepNumber() == 4) {
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(302, null)));
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(252, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(354, null)));
+                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(403, null)));
                 }
                 if (qualificationStep.getStepNumber() == 5) {
-                    qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(403, null)));
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(404, null)));
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(405, null)));
                     qualificationStep.addMetaData(new MetaData(false, new MetaDataTemplate(354, null)));

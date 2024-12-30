@@ -1,24 +1,24 @@
 package business.services.testServices;
-import business.DTOs.DonorQualificationStepDTO;
-import business.DTOs.DonorQualificationSubStepDTO;
-import data.HibernateController;
-import data.entities.Donor;
-import data.entities.MetaData;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class SubStepService {
-
-    // V. 2   Fetch current substeps on a qualfificationstep not using the DonorQualificationSubStepDTO
-    HibernateController hibernateController =
-            new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
-    SessionFactory sessionFactory = hibernateController.getSessionFactory();
-    Session session = sessionFactory.openSession();
-    Transaction transaction = null;
+//import business.DTOs.DonorQualificationStepDTO;
+//import business.DTOs.DonorQualificationSubStepDTO;
+//import data.HibernateController;
+//import data.entities.Donor;
+//import data.entities.MetaData;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
+//import org.hibernate.query.Query;
+//import java.util.List;
+//import java.util.stream.Collectors;
+//
+//public class SubStepService {
+//
+//    // V. 2   Fetch current substeps on a qualfificationstep not using the DonorQualificationSubStepDTO
+//    HibernateController hibernateController =
+//            new HibernateController("pgdatabase.donor.4a4b.dk:5432/postgres");
+//    SessionFactory sessionFactory = hibernateController.getSessionFactory();
+//    Session session = sessionFactory.openSession();
+//    Transaction transaction = null;
 
     //public List<MetaData> getSubstepsOnDonor()
 /*
@@ -85,5 +85,5 @@ public class SubStepService {
         }
         return QualificationSubStep;
     }
-*/
-}
+
+}*/
