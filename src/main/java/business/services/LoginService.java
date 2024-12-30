@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.mindrot.jbcrypt.BCrypt;
 
+// The class handles verifying if a user exist in the DB
 public class LoginService {
 
     private HibernateController hibernateController =

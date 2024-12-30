@@ -6,6 +6,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 
+//The class contains the current endpoints related to the donor
 @Path("donors")
 @Produces(MediaType.APPLICATION_JSON)
 public class DonorServiceEndpoint {

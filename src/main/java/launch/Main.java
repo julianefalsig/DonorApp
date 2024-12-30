@@ -54,7 +54,7 @@ public class Main  {
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir("temp");
         String port = System.getenv("DonorApp2");
-        port = port != null ? port : "8080";
+        port = port != null ? port : "8082";
 
         tomcat.setPort(Integer.parseInt(port));
         tomcat.getConnector();
