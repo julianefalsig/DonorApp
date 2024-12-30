@@ -1,4 +1,4 @@
-package business.services.security;
+package business.security;
 
 public class NotAuthorizedException extends Throwable {
     public NotAuthorizedException(String s) {

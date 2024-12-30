@@ -1,4 +1,4 @@
-package business.services.security;
+package business.security;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
