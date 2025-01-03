@@ -1,7 +1,7 @@
 package data.tests;
 
 import org.testng.annotations.Test;
-import business.services.ServiceException;
+import data.services.ServiceException;
 import data.HibernateController;
 import data.entities.Donor;
 import data.entities.QualificationStep;
@@ -24,7 +24,7 @@ public class TestFetchQS {
             String hql = "SELECT qs FROM QualificationStep qs WHERE qs.donor = :donor";
             Query<QualificationStep> query = session.createQuery(hql, QualificationStep.class);
             Donor donor = new Donor();
-            donor.setDonorId(952);
+            donor.setDonorId(3052);
             //donor is an en
             query.setParameter("donor", donor);
             var qs = query.getResultList();

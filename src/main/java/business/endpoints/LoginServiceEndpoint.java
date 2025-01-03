@@ -1,5 +1,5 @@
 package business.endpoints;
-import business.services.LoginService;
+import data.services.LoginService;
 import business.security.LoginData;
 import business.security.JWTHandler;
 import data.entities.User;

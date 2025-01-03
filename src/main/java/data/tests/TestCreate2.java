@@ -26,10 +26,10 @@ public class TestCreate2 {
         try {
             Donor donor = new Donor();
             User user = new User();
-            donor.setFirstName("Frants");
+            donor.setFirstName("Ole");
 
             ///////////////SKIFT USERNAME skal være unikt/////////////
-            user.setUsername("frants");
+            user.setUsername("Ole");
             ///////////////////SKIFT USERNAME///////////////////////////////
 
             String password = "kodeord";

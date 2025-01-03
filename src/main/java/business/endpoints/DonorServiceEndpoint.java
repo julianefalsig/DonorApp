@@ -1,6 +1,6 @@
 package business.endpoints;
 
-import business.services.DonorService;
+import data.services.DonorService;
 import data.entities.Donor;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -15,7 +15,7 @@ public class DonorServiceEndpoint {
     // HTTP GET method that returns a list of donor first names
     @GET
     public List<String> getDonorFirstNames() {
-        return donorService.getAllDonors();  // This one is not being used, has just been for testing
+        return donorService.getAllDonors();  // This one is not being used in the frontend, has just been for testing
     }
     @GET //Endpoint for fetching all donor data  given the donorID
     @Path("{id}")

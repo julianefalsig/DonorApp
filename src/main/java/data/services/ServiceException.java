@@ -1,4 +1,4 @@
-package business.services;
+package data.services;
 
 public class ServiceException extends RuntimeException{
 

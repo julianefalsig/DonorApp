@@ -1,4 +1,4 @@
-package business.services;
+package data.services;
 
 import data.HibernateController;
 import data.entities.User;
